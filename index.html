@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+
+        <script src="scripts/main.js" type="module" defer></script>
+        <script src="bootstrap/dist/js/bootstrap.bundle.min.js" async></script>
+
+        <title>Bookorner</title>
+    </head>
+
+    <body>
+        <div id="header">
+            <div id="headerLogo">
+                <img src="styles/logo.png" alt="website logo" width="110" height="110" class="d-inline-block align-text-top">
+                <h1 class="display-3">Bookorner</h1>
+                <h2 class="header-subtext">Where book lovers can call home!</h2>
+            </div>
+        <button type="button" class="btn btn-outline-dark btn-sm" id="addBookButton">Add Book</button>
+        </div>
+
+        <hr class="divider" />
+
+        <div id="library">
+            <div id="emptyLibraryText" hidden="true">
+                <div id="emptyLibraryTextHeader">
+                    <h2>Your library is empty!</h2>
+                </div>
+                <div id="emptyLibraryTextSubheader">
+                    <p class="text-muted">Click the "Add Book" button above to insert a new book!</p>
+                </div>
+            </div>
+
+            <div id="libraryCards"></div>
+        </div>
+
+        <hr class="divider">
+
+        <div class="text-center" id="footer">
+            <h4>What is <strong>Bookorner</strong>?</h4>
+            <p class="description-text">
+                Bookorner is a web application for tracking your books and organizing your library. Bookorner is created by <i>Farzan Mirshekari</i> <br> and is built on HTML, CSS and JavaScript and uses local storage to keep all of your books organized and easy to access!
+            </p>
+            <hr class="divider">
+            <h5 class="gitHubLink">Click <i><a class="gitHubLink" href="https://github.com/farzanmirshekari/bookorner">here</a></i> to go to the GitHub repository!</h5>
+            <h6 class="license">Bookorner is protected by the <a class="license" href="https://github.com/farzanmirshekari/bookorner/blob/main/LICENSE">MIT License</a>!</h6>
+        </div>
+
+        <template id="bookCard">
+            <div class="card" id="">
+                <div class="card-body">
+                    <h5 class="card-title" id="bookTitle"></h5>
+                    <p class="card-text" id="bookAuthor"></p>
+                    <p><small class="text-muted" id="bookPages"></small></p>
+                </div>
+                <div class="card-footer"></div>
+            </div>
+        </template>
+
+        <div class="modal fade" id="addBookModal" tabindex="-1" aria-labelledby="addBookModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addBookModalLabel">Add Book</h5>
+                    </div>
+                        <div class="modal-body">
+                            <form name="addBookForm">
+                                <div class="mb-3">
+                                    <label for="inputBookTitle" class="form-label">Title</label>
+                                    <input class="form-control" id="inputBookTitle" name="inputBookTitle" placeholder="Ex: War and Peace" maxlength="50">                                
+                                    <div class="form-text">What is the title of your book?</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="inputBookAuthor" class="form-label">Author</label>
+                                    <input class="form-control" id="inputBookAuthor" name="inputBookAuthor" placeholder="Ex: Leo Tolstoy" maxlength="50">
+                                    <div class="form-text">Who wrote your book?</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="inputBookPages" class="form-label">Pages</label>
+                                    <input type="number" class="form-control" id="inputBookPages" name="inputBookPages" placeholder="Ex: 1225" min="1" max="10000">
+                                    <div class="form-text">How long is your book in pages?</div>
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="inputBookReadStatus">
+                                    <label class="form-check-label" for="inputBookReadStatus">Read</label>
+                                </div>
+                            </form>
+                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="addBookModalCancelButton">Cancel</button>
+                        <button type="submit" class="btn btn-primary" id="addBookModalSaveButton">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    
+    </html>
