@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!--
+    Work to be done:
+        Update read status on cloud
+        Display empty library text for cloud books
+-->
+
     <head>
+        <link rel="shortcut icon" href="#">
+
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -9,7 +17,7 @@
         <link rel="stylesheet" href="styles/bootstrap.min.css">       
 
         <script src="scripts/main.js" type="module" defer></script>
-        <script src="scripts/firebase.js" defer></script>
+        <script src="scripts/firebase.js" type="module" defer></script>
         <script src="scripts/bootstrap.bundle.min.js" async></script>
 
         <title>Bookorner</title>
@@ -32,7 +40,10 @@
                 <h1 class="display-3">Bookorner</h1>
                 <h2 class="header-subtext">Where book lovers can call home!</h2>
             </div>
-        <button type="button" class="btn btn-outline-dark btn-sm" id="addBookButton">Add Book</button>
+            <div class="buttons">
+                <button type="button" class="btn btn-outline-dark btn-sm" id="addBookButton">Add Book</button>
+                <button type="button" class="btn btn-outline-dark btn-sm" id="loadBooksFromCloud">Load Books from Cloud</button>
+            </div>
         </div>
 
         <hr class="divider" />
@@ -82,14 +93,25 @@
                         <div class="modal-body">
                             <form name="addBookForm">
                                 <div class="mb-3">
-                                    <label for="inputBookISBN" class="form-label">ISBN</label>
-                                    <input class="form-control" id="inputBookISBN" name="inputBookISBN" placeholder="Ex: 9780758328007" maxlength="13">
-                                    <div class="form-text">What is the ISBN for your book?</div>
+                                    <label for="inputBookTitle" class="form-label">Title</label>
+                                    <input class="form-control" id="inputBookTitle" name="inputBookTitle" placeholder="Ex: The Master and Margarita" maxlength="50">                                
+                                    <div class="form-text">What is the title of your book?</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="inputBookAuthor" class="form-label">Author</label>
+                                    <input class="form-control" id="inputBookAuthor" name="inputBookAuthor" placeholder="Ex: Mikhail Bulgakov" maxlength="50">
+                                    <div class="form-text">Who wrote your book?</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="inputBookPages" class="form-label">Pages</label>
+                                    <input type="number" class="form-control" id="inputBookPages" name="inputBookPages" placeholder="Ex: 405" min="1" max="10000">
+                                    <div class="form-text">How long is your book in pages?</div>
                                 </div>
                                 <hr>
-                                <div class="mb-3">
+                                <div class="mb-3 ISBN">
                                     <label for="inputBookISBN" class="form-label">ISBN</label>
                                     <input class="form-control" id="inputBookISBN" name="inputBookISBN" placeholder="Ex: 9780758328007" maxlength="13">
+                                    <button type="button" id = "checkISBN" class="btn btn-secondary" data-backdrop = "static">Check ISBN</button>
                                     <div class="form-text">What is the ISBN for your book?</div>
                                 </div>
                                 <div class="mb-3 form-check">
@@ -100,7 +122,7 @@
                         </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="addBookModalCancelButton">Cancel</button>
-                        <button type="submit" class="btn btn-primary" id="addBookModalSaveButton">Save in Local Storage</button>
+                        <button type="submit" class="btn btn-primary" id="addBookModalSaveButtonLocal">Save in Local Storage</button>
                         <button type="submit" class="btn btn-primary" id="addBookModalSaveButtonCloud">Save in Cloud Storage</button>
                     </div>
                 </div>

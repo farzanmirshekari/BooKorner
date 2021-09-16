@@ -6,6 +6,8 @@ class Main {
         this.addBookModal = new AddBookModal(this);
         this.library = new Library(this);
         this.localLibrary = this.getLocalStorage();
+        document.getElementById("addBookModalSaveButtonCloud").style.display = "none";
+        document.getElementById("loadBooksFromCloud").style.display = "none";
     }
 
     getLocalStorage() {
@@ -23,6 +25,7 @@ class Main {
         this.addBookModal.setUp();
         this.library.display();
     }
+    
 }
 
 const main = new Main;

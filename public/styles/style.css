@@ -39,6 +39,17 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
+.buttons {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 9.5%;
+}
+
+#addBookButton {
+  margin: auto auto 15px auto;
+}
+
 .gitHubLink {
   color: black;
   font-family: 'Raleway', sans-serif;
@@ -63,6 +74,10 @@ body {
   font-family: 'Raleway', sans-serif;
   margin: auto;
   width: auto;
+}
+
+#checkISBN {
+  margin-top: 10px;
 }
 
 .authentication {

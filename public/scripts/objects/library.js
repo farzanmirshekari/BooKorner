@@ -3,7 +3,7 @@ import Book from "./book.js";
 export default class Library {
     
     constructor(main) {
-        this.main =main;
+        this.main = main;
         this.books = this.getBooksFromLocalStorage();
     }
 

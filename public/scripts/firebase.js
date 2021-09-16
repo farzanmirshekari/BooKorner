@@ -22,6 +22,9 @@ function googleLogin() {
         console.log(res.user.displayName);
         showUserDetails(res.user);
         document.getElementById("login").style.display = "none";
+        document.getElementById("addBookModalSaveButtonLocal").style.display = "none";
+        document.getElementById("loadBooksFromCloud").style.display = "block";
+        document.getElementById("addBookModalSaveButtonCloud").style.display = "block";
         document.getElementById("logout").style.display = "block";
         document.getElementById("userDetails").style.display = "block";
     }).catch(error => {
@@ -37,6 +40,9 @@ function logoutUser() {
     firebase.auth().signOut().then(() => {
         document.getElementById("logout").style.display = "none";
         document.getElementById("login").style.display = "block";
+        document.getElementById("addBookModalSaveButtonLocal").style.display = "block";
+        document.getElementById("loadBooksFromCloud").style.display = "none";
+        document.getElementById("addBookModalSaveButtonCloud").style.display = "none";
         document.getElementById("userDetails").style.display = "none";
         console.log("Logout successful!");
     })

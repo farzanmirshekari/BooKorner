@@ -2,7 +2,7 @@ import BookDeleteButton from "./bookDeleteButton.js";
 import BookReadButton from "./bookReadButton.js";
 
 export default class Book {
-    constructor(main, title, author, pages, read, id) {
+    constructor(main, title, author, pages, read, id, savedLocally) {
         this.main = main;
         this.title = title;
         this.author = author;
@@ -56,4 +56,5 @@ export default class Book {
         this.fillBookCard();
         bookCardContainer.appendChild(this.card);
     }
+
 }
