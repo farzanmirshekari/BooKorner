@@ -1,1 +1,3 @@
-# bookorner
+Bookorner is a web application designed to help book lovers organize their library. With the rapid shift towards e-books and virtual libraries, Bookorner will act as a bridge to the new normal. Developed by Farzan Mirshekari, Bookorner is built made using JavaScript, HTML/CSS, the Bootstrap framework as well as various Google Firebase capabilities. Users can save their books locally or to the cloud and access them anywhere, anytime. They can also search for books using unique ISBN codes. Bookorner will then utilize the Google Books API to retrieve the relevant information to the book and display it to the user.
+Bookorner can be found here: 
+https://bookorner-7193a.web.app/
