@@ -132,7 +132,7 @@ export default class AddBookModal {
             
         }
         catch(error) {
-            alert("You must sign in to Google before attempting to save to cloud!");
+            alert("Something went wrong! Please try again.");
             console.log(error);
         }
         this.resetForm();
